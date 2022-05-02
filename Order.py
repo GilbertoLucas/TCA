@@ -1,29 +1,42 @@
-def selection(lista):
+def selection(lista,OrderedLists):
+    if len(lista)==0:
+        return OrderedLists                      # lista vazia 
+    
     x = lista
     N = len(x)
     for i in range(N-1):
-        id_menor = i
-        for j in range(i+1,N):
-            if(x[j] < x[id_menor]):
-                id_menor = j
-        x[i],x[id_menor] = x[id_menor],x[i]
-    
-def partition(lista,inicio,fim):
-    pivo = lista[fim]
-    i = inicio
-    for j in range(inicio,fim):
-        if lista[j] <= pivo:
-            lista[j],lista[i] = lista[i],lista[j]
-            i = i + 1
-    lista[i], lista[fim] = lista[fim], lista[i]
-    return i 
-    
-    
-def quicksort(lista, inicio = 0,fim = None):
+        id_menor = i                             # menor elemento e' o elemento[i]
+        for j in range(i+1,N):                   # varredura nos elementos apos  i
+            if(x[j] < x[id_menor]):              # caso encontrar um elemento[j] com valor menor do que elemento[i]
+                id_menor = j                     # menor valor atualizado para elemento [j]
+        x[i],x[id_menor] = x[id_menor],x[i]      # troca de posicao do i com o novo menor elemento
 
-    if fim is None:
-        fim = len(lista) - 1
-    if inicio < fim:
-        p = partition(lista,inicio,fim)
-        quicksort(lista,inicio,p-1)
-        quicksort(lista,p+1,fim)
+
+    OrderedLists = x
+    return OrderedLists
+    
+    
+def QuickSort(lists, OrderedLists,index=0):
+
+    if len(lists)==0:
+        return OrderedLists                     # lista vazia 
+    
+    pivot =  lists[int(len(lists)/2)]           # Escolhendo como pivo o elemento central do vetor
+    lists.remove(pivot)                         # removendo o pivo da lista
+    
+    right_values = []; left_values =[]
+
+    #Separacao
+    for i in lists:
+        if i>pivot:
+            right_values.append(i)              # valores maiores que o pivo vao para o subvetor direito
+        else:
+            left_values.append(i)               # valores menores ou iguais que o pivo vao para o subvetor esquerdo
+    
+    OrderedLists[index+len(left_values)]= pivot # posicionamento do pivo no vetor com valores ordenados
+    
+    #recursao
+    QuickSort(right_values, OrderedLists, index+len(left_values)+1)     # recursao do lado direito
+    QuickSort(left_values,OrderedLists,index)                           # recursao do lado esquerdo
+    
+    return OrderedLists
