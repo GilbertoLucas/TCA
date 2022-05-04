@@ -70,3 +70,20 @@ def mergesort(x):
         r.append(float('inf'))
 
     return x
+
+
+def insertion(x):
+
+    n = len(x)
+
+    for i in range(1, n):
+        v = x[i]
+        j = i
+
+        while j-1 >= 0 and x[j-1] > v:
+            x[j] = x[j-1]
+            j = j - 1
+
+        x[j] = v
+
+    return x

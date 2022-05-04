@@ -12,7 +12,6 @@ from Order import *
 #n = 1000000 #lista com 1000000 elementos
 n = 100000000 #lista com 100000000 elementos
 
-
 #lista de numeros aleatorios
 random_numbers = numpy.random.uniform(size=n).tolist()
 OrderedList= ['' for i in range(len(random_numbers))]  #vetor vazio para guardar os dados ordenados
@@ -51,3 +50,12 @@ tf_mergesort_random=time.time()
 ##
 time_mergesort_random = "{:.3f}".format(tf_mergesort_random-t0_mergesort_random)
 print("time mergesort random crescente: " + time_mergesort_random + "\n")
+
+######################### insertion ################################################
+#ordenando
+t0_insertion_random=time.time()
+OrderedList_insertion = mergesort(random_numbers_crescente)
+tf_insertion_random=time.time()
+##
+time_insertion_random = "{:.3f}".format(tf_insertion_random-t0_insertion_random)
+print("time mergesort random crescente: " + time_insertion_random + "\n")
