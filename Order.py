@@ -1,4 +1,4 @@
-def selection(lista,OrderedLists):
+def selection(lista, OrderedLists):
     if len(lista)==0:
         return OrderedLists                      # lista vazia 
     
@@ -40,3 +40,33 @@ def QuickSort(lists, OrderedLists,index=0):
     QuickSort(left_values,OrderedLists,index)                           # recursao do lado esquerdo
     
     return OrderedLists
+
+
+def mergesort(x):
+
+    n = len(x)
+    if n < 2:                   # caso básico da recursão
+        return x
+
+    m = n // 2
+    l = x[0:m]                  # separação
+    r = x[m:n]
+
+    mergesort(l)                # recursão
+    mergesort(r)
+
+    i = 0
+    j = 0
+
+    for k in range(n):          # combinação
+        if l[i] < r[j]:
+            x[k] = l[i]
+            i = i + 1
+        else:
+            x[k] = r[j]
+            j = j + 1
+
+        l.append(float('inf'))  # adicionando as sentinelas
+        r.append(float('inf'))
+
+    return x

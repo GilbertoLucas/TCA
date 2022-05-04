@@ -35,11 +35,19 @@ random_numbers_decrescente  = sorted(random_numbers,reverse=True)
 
 ######################### quicksort ################################################
 #ordenando
-t0_quicksort_random=time.time()
-OrderedList_quicksort = QuickSort(random_numbers_crescente,OrderedList)
-tf_quicksort_random=time.time()
+#t0_quicksort_random=time.time()
+#OrderedList_quicksort = QuickSort(random_numbers_crescente,OrderedList)
+#tf_quicksort_random=time.time()
 ##
-time_quicksort_random = "{:.3f}".format(tf_quicksort_random-t0_quicksort_random)
-print("time quicksort random crescente: " + time_quicksort_random + "\n")
+#time_quicksort_random = "{:.3f}".format(tf_quicksort_random-t0_quicksort_random)
+#print("time quicksort random crescente: " + time_quicksort_random + "\n")
 
 
+######################### mergesort ################################################
+#ordenando
+t0_mergesort_random=time.time()
+OrderedList_mergesort = mergesort(random_numbers_crescente)
+tf_mergesort_random=time.time()
+##
+time_mergesort_random = "{:.3f}".format(tf_mergesort_random-t0_mergesort_random)
+print("time mergesort random crescente: " + time_mergesort_random + "\n")
