@@ -22,7 +22,6 @@ random_numbers_crescente = sorted(random_numbers)
 #Lista em ordem decrescente
 random_numbers_decrescente  = sorted(random_numbers,reverse=True)
 
-
 ######################### selection ################################################
 #ordenando
 #t0_selection_random=time.time()
