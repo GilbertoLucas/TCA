@@ -9,7 +9,7 @@ from Order import *
 #n = 1000   #lista com 1000 elementos
 #n = 10000  #lista com 10000 elementos
 #n = 100000 #lista com 100000 elementos
-#n = 1000000 #lista com 1000000 elementos
+#n = 1000000 #lista com 1000000 elementos#
 n = 100000000 #lista com 100000000 elementos
 
 #lista de numeros aleatorios
