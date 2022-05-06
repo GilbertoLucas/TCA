@@ -6,7 +6,7 @@ import copy
 
 
 # Tamanho dos vetores
-n = [10, 100, 1000, 10000]#, 100000]
+n = [10, 100, 1000, 10000, 100000]
 
 # Vetor para armazenar os tempos
 time_selection = []
@@ -97,7 +97,9 @@ for k in range(len(n)):
     random_quicksort.append(time_quicksort[3*k])
     random_inserction.append(time_insertion[3*k])
 
-    f.write(str(time_selection[3*k]) + " / " + str(time_mergesort[3*k]) + " / " + str(time_quicksort[3*k]) + " / " + str(time_insertion[3*k]) + "\n\n")
+    f.write("{:.6f}".format(time_selection[3*k]) + " / " + "{:.6f}".format(time_mergesort[3*k]) + " / " + "{:.6f}".format(time_quicksort[3*k]) + " / " + "{:.6f}".format(time_insertion[3*k]) + "\n\n")
+
+
 
     f.write("CRESCENT" + "\n\n")
 
@@ -108,7 +110,7 @@ for k in range(len(n)):
     crescent_quicksort.append(time_quicksort[3*k+1])
     crescent_inserction.append(time_insertion[3*k+1])
 
-    f.write(str(time_selection[3*k + 1]) + " / " + str(time_mergesort[3*k + 1]) + " / " + str(time_quicksort[3*k + 1]) + " / " + str(time_insertion[3*k + 1]) + "\n\n")
+    f.write("{:.6f}".format(time_selection[3*k + 1]) + " / " + "{:.6f}".format(time_mergesort[3*k + 1]) + " / " + "{:.6f}".format(time_quicksort[3*k + 1]) + " / " + "{:.6f}".format(time_insertion[3*k + 1]) + "\n\n")
 
     f.write("DECRESCENTE" + "\n\n")
 
@@ -119,7 +121,7 @@ for k in range(len(n)):
     decrescente_quicksort.append(time_quicksort[3*k+2])
     decrescente_inserction.append(time_insertion[3*k+2])
 
-    f.write(str(time_selection[3*k + 2]) + " / " + str(time_mergesort[3*k + 2]) + " / " + str(time_quicksort[3*k + 2]) + " / " + str(time_insertion[3*k + 2]) + "\n\n")
+    f.write("{:.6f}".format(time_selection[3*k + 2]) + " / " + "{:.6f}".format(time_mergesort[3*k + 2]) + " / " + "{:.6f}".format(time_quicksort[3*k + 2]) + " / " + "{:.6f}".format(time_insertion[3*k + 2]) + "\n\n")
 f.close()
 
 # plotando resultados random
@@ -132,8 +134,9 @@ plt.xlabel("Número de valores")
 plt.ylabel("Tempo (segundos)")
 plt.legend()
 plt.grid()
-plt.show()
 plt.savefig("result_random" + ".pdf")
+plt.show()
+
 
 # plotando resultados crescentes
 plt.title("Valores em ordem crescente")
@@ -145,8 +148,9 @@ plt.xlabel("Número de valores")
 plt.ylabel("Tempo (segundos)")
 plt.legend()
 plt.grid()
-plt.show()
 plt.savefig("result_crescent" + ".pdf")
+plt.show()
+
 
 # plotando resultados decrescente
 plt.title("Valores em ordem decrescente")
@@ -158,5 +162,5 @@ plt.xlabel("Número de valores")
 plt.ylabel("Tempo (segundos)")
 plt.legend()
 plt.grid()
-plt.show()
 plt.savefig("result_decrescente" + ".pdf")
+plt.show()

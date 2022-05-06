@@ -22,7 +22,7 @@ def QuickSort(lists, OrderedLists, index=0):
     pivot = lists[int(len(lists) / 2)]  # Escolhendo como pivo o elemento central do vetor
     lists.remove(pivot)  # removendo o pivo da lista
 
-    right_values = [];
+    right_values = []
     left_values = []
 
     # Separacao
