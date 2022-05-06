@@ -1,9 +1,8 @@
 import time
-import numpy
 from Order import *
 import matplotlib.pyplot as plt
 import copy
-
+import random
 
 # Tamanho dos vetores
 n = [10, 100, 1000, 10000, 100000]
@@ -16,7 +15,7 @@ time_insertion = []
 
 for i in range(len(n)):
     #lista de numeros aleatorios
-    random_numbers = numpy.random.uniform(size=n[i]).tolist()
+    random_numbers = [random.randint(-n[i],n[i]) for k in range(n[i])]
 
     #Lista em ordem crescente
     random_numbers_crescente = sorted(random_numbers)
@@ -31,7 +30,7 @@ for i in range(len(n)):
 
     for j in range(len(list_random_numbers_selection)):
         #selection
-        OrderedList = ['' for i in range(len(list_random_numbers_selection[j]))]
+        OrderedList = ['' for ii in range(len(list_random_numbers_selection[j]))]
         t0_selection_random = time.time()
         OrderedList_selection = selection(list_random_numbers_selection[j], OrderedList)
         tf_selection_random = time.time()
@@ -40,10 +39,9 @@ for i in range(len(n)):
         time_selection.append(float(time_selection_random))
 
         # quicksort
-        OrderedList = ['' for i in range(len(list_random_numbers_quicksort[j]))]
+        OrderedList = ['' for ii in range(len(list_random_numbers_quicksort[j]))]
         t0_quicksort_random = time.time()
-        OrderedList_quicksort = QuickSort(list_random_numbers_quicksort[j], OrderedList)#quicksort(list_random_numbers_quicksort[j], len(list_random_numbers_quicksort[j]))#QuickSort(list_random_numbers_quicksort[j], OrderedList)
-        #arr = quicksort(list_random_numbers_quicksort[j])
+        OrderedList_quicksort = QuickSort(list_random_numbers_quicksort[j], OrderedList)
         tf_quicksort_random = time.time()
 
         time_quicksort_random = "{:.3f}".format(tf_quicksort_random - t0_quicksort_random)

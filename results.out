@@ -6,19 +6,19 @@ RANDOM
 
 Selection/ Mergesort / Quicksort / Insertion
 
-0.0 / 0.0 / 0.0 / 0.0
+0.000000 / 0.000000 / 0.000000 / 0.000000
 
 CRESCENT
 
 Selection/ Mergesort / Quicksort / Insertion
 
-0.0 / 0.0 / 0.0 / 0.0
+0.000000 / 0.000000 / 0.000000 / 0.000000
 
 DECRESCENTE
 
 Selection/ Mergesort / Quicksort / Insertion
 
-0.0 / 0.0 / 0.0 / 0.0
+0.000000 / 0.000000 / 0.000000 / 0.000000
 
 =======================================================
 
@@ -28,19 +28,19 @@ RANDOM
 
 Selection/ Mergesort / Quicksort / Insertion
 
-0.0 / 0.0 / 0.0 / 0.0
+0.000000 / 0.000000 / 0.000000 / 0.000000
 
 CRESCENT
 
 Selection/ Mergesort / Quicksort / Insertion
 
-0.001 / 0.0 / 0.0 / 0.0
+0.001000 / 0.000000 / 0.000000 / 0.000000
 
 DECRESCENTE
 
 Selection/ Mergesort / Quicksort / Insertion
 
-0.0 / 0.0 / 0.0 / 0.001
+0.000000 / 0.001000 / 0.000000 / 0.000000
 
 =======================================================
 
@@ -50,19 +50,19 @@ RANDOM
 
 Selection/ Mergesort / Quicksort / Insertion
 
-0.021 / 0.002 / 0.001 / 0.032
+0.025000 / 0.005000 / 0.001000 / 0.048000
 
 CRESCENT
 
 Selection/ Mergesort / Quicksort / Insertion
 
-0.022 / 0.002 / 0.001 / 0.0
+0.025000 / 0.004000 / 0.002000 / 0.000000
 
 DECRESCENTE
 
 Selection/ Mergesort / Quicksort / Insertion
 
-0.023 / 0.002 / 0.001 / 0.064
+0.039000 / 0.004000 / 0.001000 / 0.115000
 
 =======================================================
 
@@ -72,17 +72,39 @@ RANDOM
 
 Selection/ Mergesort / Quicksort / Insertion
 
-2.119 / 0.026 / 0.014 / 3.673
+3.254000 / 0.042000 / 0.024000 / 5.312000
 
 CRESCENT
 
 Selection/ Mergesort / Quicksort / Insertion
 
-2.214 / 0.021 / 0.012 / 0.001
+3.218000 / 0.044000 / 0.016000 / 0.002000
 
 DECRESCENTE
 
 Selection/ Mergesort / Quicksort / Insertion
 
-2.442 / 0.021 / 0.012 / 7.253
+3.502000 / 0.041000 / 0.016000 / 10.392000
+
+=======================================================
+
+N = 100000
+
+RANDOM
+
+Selection/ Mergesort / Quicksort / Insertion
+
+368.562000 / 0.541000 / 0.239000 / 607.343000
+
+CRESCENT
+
+Selection/ Mergesort / Quicksort / Insertion
+
+356.670000 / 0.538000 / 0.200000 / 0.023000
+
+DECRESCENTE
+
+Selection/ Mergesort / Quicksort / Insertion
+
+376.534000 / 0.559000 / 0.239000 / 1169.497000
 
