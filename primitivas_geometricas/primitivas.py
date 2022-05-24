@@ -44,19 +44,19 @@ def norma(vector):
 
     return (soma)**(1/2)
 
-def distancia(vector_x,vector_y):
-    n_vector_x = len(vector_x)
-    n_vector_y = len(vector_y)
+def distancia(point_a,point_b):
+    n_point_a = len(point_a)
+    n_point_b = len(point_b)
 
-    vector_dist = None
+    dist = None
 
-    if(n_vector_x != n_vector_y):
+    if(n_point_a != n_point_b):
         print("Vetores de tamanhos diferentes")
         exit()
     else:
-        vector_y = multiplica_escalar(-1,vector_y)
-        vector_dist = soma_vetorial(vector_x,vector_y)
-        return norma(vector_dist)
+        point_b = multiplica_escalar(-1,point_b)
+        dist = soma_vetorial(point_a,point_b)
+        return norma(dist)
 
 def produto_vetorial(vector_x,vector_y):
     n_vector_x = len(vector_x)
