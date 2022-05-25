@@ -1,3 +1,4 @@
+#Funcoes elementares
 def soma_vetorial(vector_x,vector_y):
     n_vector_x = len(vector_x)
     n_vector_y = len(vector_y)
@@ -81,6 +82,9 @@ def produto_vetorial(vector_x,vector_y):
     
     return vector_z
 
+#Funcoes auxiliares
+
+#Questao 1
 def pseudo_angulo(X):
     n = len(X)
     if(n!=2):
@@ -130,3 +134,23 @@ def pseudo_angulo(X):
                     return 6 + x/(-y)       #Caso 4.1
                 else:
                     return 8 - (-y)/x       #Caso 4.2
+
+
+def area_3pontos(p1,p2,p3):
+    n1 = len(p1)
+    n2 = len(p2)
+    n3 = len(p3)
+    if(n1 != 2):
+        print("Ponto 1 deve ser 2D\n")
+        exit()
+    elif(n2 != 2):
+        print("Ponto 2 deve ser 2D\n")
+        exit()
+    elif(n3 != 2):
+        print("Ponto 3 deve ser 2D\n")
+        exit()
+    else:
+        x1 = p1[0]; y1=p1[1]
+        x2 = p2[0]; y2=p2[1]
+        x3 = p3[0]; y3=p3[1]
+        return (x1*y2 - x2*y1 + x2*y3 - x3*y2 + x3*y1 - x1*y3)/2
