@@ -80,3 +80,53 @@ def produto_vetorial(vector_x,vector_y):
             vector_z.append(vector_x[0]*vector_y[1]-vector_x[1]*vector_y[0])
     
     return vector_z
+
+def pseudo_angulo(X):
+    n = len(X)
+    if(n!=2):
+        print("Vetor deve ser 2D\n")
+        exit()
+    else:
+        x = X[0]
+        y = X[1]
+
+        if(y>0):  
+            if(x>0):                        #Caso 1  (Primeiro Quadrante)
+                if(x>=y):   
+                    return y/x              #Caso 1.1
+                else:
+                    return 2 - x/y          #Caso 1.2
+            elif(x==0):
+                return 2                    #Caso 1.3  (Aresta Vertical Superior)
+            
+            else:                           #Caso 2    (Segundo Quadrante)
+                if(-x<=y):
+                    return 2 + (-x)/y       #Caso 2.1
+                else:
+                    return 4 - y/(-x)       #Caso 2.2
+        
+        
+        elif(y==0):                         
+            if(x>0):
+                return 8                    #Caso 4.3  (Aresta Horizontal Direita)
+            elif(x==0):
+                return None                 #Vetor Nulo
+            else:
+                return 4                    #Caso 2.3  (Aresta Horizontal Esquerda)
+
+
+        else:
+            if(x<0):                        #Caso 3    (Terceiro Quadrante)
+                if((-x)>=(-y)):
+                    return 4 + (-y)/(-x)    #Caso 3.1
+                else:
+                    return 6 - (-x)/(-y)    #Caso 3.2
+            
+            elif(x==0):
+                return 6                    #Caso 3.3  (Aresta Vertical Inferior)
+            
+            else:                           #Caso 4    (Quarto Quadrante)
+                if(x<=(-y)):
+                    return 6 + x/(-y)       #Caso 4.1
+                else:
+                    return 8 - (-y)/x       #Caso 4.2
