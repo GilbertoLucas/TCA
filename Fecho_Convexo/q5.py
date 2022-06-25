@@ -44,7 +44,7 @@ for i in range(0,len(lista) - 1, 2):
 #teste com tres pontos colineares
 #pontos = [[-3,1.5],[-1,0],[2.5,2.5],[-1,4],[1,-1],[-2,-2],[1,-2],[1.5,2],[0,-2]]
 
-#pegar pontos de menor oordenada
+#pegar pontos de menor ordenada
 menor_y = pontos[0][1]
 aux = []
 for i in range(1,len(pontos)):
