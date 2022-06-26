@@ -1,26 +1,5 @@
 from WingedEdge import *
 
-#funcao para procurar vertices incidentes a face
-def v_inc_face(vertices_incidentes,aresta_i,face_procurada):
-    
-    if((aresta_i.fccw == face_procurada) or (aresta_i.fcw == face_procurada)):
-        if(aresta_i.vertice_1 not in vertices_incidentes):
-            vertices_incidentes.append(aresta_i.vertice_1)
-        elif(aresta_i.vertice_2 not in vertices_incidentes):
-            vertices_incidentes.append(aresta_i.vertice_2)
-
-#funcao para procurar vertices incidentes a outros vertices
-def v_inc_vertice(vertices_incidentes,aresta_i,vertice_procurado):
-    
-    if((aresta_i.vertice_1 == vertice_procurado)):
-        if(aresta_i.vertice_1 not in vertices_incidentes):
-            vertices_incidentes.append(aresta_i.vertice_2)    
-    
-    elif((aresta_i.vertice_2 == vertice_procurado)):
-        if(aresta_i.vertice_2 not in vertices_incidentes):
-            vertices_incidentes.append(aresta_i.vertice_1)
-
-
 #vertices (x,y,z)
 v1 = vertice(1,0,0)
 v2 = vertice(1,1,0)
@@ -97,16 +76,80 @@ d = winged_edge(v,a,f)
 id_face = 3
 v_incidentes_face = []
 
-for i in range(len(d.arestas)):
-    A = d.arestas[i]
-    v_inc_face(v_incidentes_face,A,d.faces[id_face])
+#dois primeiros verticies sao incidentes a aresta ligada a face
+v_incidentes_face.append(d.faces[id_face].aresta.vertice_1)
+v_incidentes_face.append(d.faces[id_face].aresta.vertice_2)
+
+#aresta inicial
+a_0 = d.faces[id_face].aresta
+#aresta vazia
+a_i = aresta()  
+
+cnt = 0 #(forca a entrada no loop)
+
+while(a_i != a_0):
+    
+    if(cnt == 0):
+        a_i = a_0
+        cnt = 1
+
+    #face procurada e' a face anti horaria da aresta(i)
+    if(d.faces[id_face] == a_i.fccw):
+        if(a_i.vertice_1 not in v_incidentes_face):
+            v_incidentes_face.append(a_i.vertice_1)
+        elif(a_i.vertice_2 not in v_incidentes_face):
+            v_incidentes_face.append(a_i.vertice_2)
+        
+        #nova aresta e' a next do sentido anti horario
+        a_i = a_i.nccw
+    
+    #face procurada e' a face horaria da aresta(i)
+    elif(d.faces[id_face] == a_i.fcw):
+        if(a_i.vertice_1 not in v_incidentes_face):
+            v_incidentes_face.append(a_i.vertice_1)
+        elif(a_i.vertice_2 not in v_incidentes_face):
+            v_incidentes_face.append(a_i.vertice_2)
+        
+        #nova aresta e' a next do sentido anti horario
+        a_i = a_i.ncw
+
 
 
 #questao 4b encontrar todos os vertices incidentes a outro vertice
 #id do vertice escolhido
-id_vertice = 5
+id_vertice = 7
 v_incidentes_vertice = []
+aresta_incidente = d.vertices[id_vertice].aresta
 
-for i in range(len(d.arestas)):
-    A = d.arestas[i]
-    v_inc_vertice(v_incidentes_vertice,A,d.vertices[id_vertice])
+#procura todos os vertices incidentes
+if(d.vertices[id_vertice] == aresta_incidente.vertice_1):
+    
+    v_incidentes_vertice.append(aresta_incidente.vertice_2)
+    
+    if((aresta_incidente.pccw.vertice_1 == d.vertices[id_vertice]) and (aresta_incidente.pccw.vertice_2 not in v_incidentes_vertice ) ):
+        v_incidentes_vertice.append(aresta_incidente.pccw.vertice_2)
+    
+    elif((aresta_incidente.pccw.vertice_2 == d.vertices[id_vertice]) and (aresta_incidente.pccw.vertice_1 not in v_incidentes_vertice )):
+        v_incidentes_vertice.append(aresta_incidente.pccw.vertice_1)
+    
+    if((aresta_incidente.ncw.vertice_1 == d.vertices[id_vertice]) and (aresta_incidente.ncw.vertice_2 not in v_incidentes_vertice )):
+        v_incidentes_vertice.append(aresta_incidente.ncw.vertice_2)
+    
+    elif((aresta_incidente.ncw.vertice_2 == d.vertices[id_vertice]) and (aresta_incidente.ncw.vertice_1 not in v_incidentes_vertice )):
+        v_incidentes_vertice.append(aresta_incidente.ncw.vertice_1)
+
+elif(d.vertices[id_vertice] == aresta_incidente.vertice_2):
+    
+    v_incidentes_vertice.append(aresta_incidente.vertice_1)
+    
+    if((aresta_incidente.pcw.vertice_1 == d.vertices[id_vertice]) and (aresta_incidente.pcw.vertice_2 not in v_incidentes_vertice ) ):
+        v_incidentes_vertice.append(aresta_incidente.pcw.vertice_2)
+    
+    elif((aresta_incidente.pcw.vertice_2 == d.vertices[id_vertice]) and (aresta_incidente.pcw.vertice_1 not in v_incidentes_vertice )):
+        v_incidentes_vertice.append(aresta_incidente.pcw.vertice_1)
+    
+    if((aresta_incidente.nccw.vertice_1 == d.vertices[id_vertice]) and (aresta_incidente.nccw.vertice_2 not in v_incidentes_vertice )):
+        v_incidentes_vertice.append(aresta_incidente.nccw.vertice_2)
+    
+    elif((aresta_incidente.nccw.vertice_2 == d.vertices[id_vertice]) and (aresta_incidente.nccw.vertice_1 not in v_incidentes_vertice )):
+        v_incidentes_vertice.append(aresta_incidente.nccw.vertice_1)
